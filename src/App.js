@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+export default function App() {
+  const apiKey = 'ef6b7de36c8aed58b9210b1226e7bc4d'
+  const [weather, setWeather] = useState('')
+  useEffect(() => {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=London&appid=ef6b7de36c8aed58b9210b1226e7bc4d")
+      .then(data => data.json())
+      .then(data => setWeather(data))
+  },[])
+
+  console.log()
+  return(
+    <div>
+      <h1>Hello</h1>
+      <h2>{weather.weather[0].description}</h2>
     </div>
-  );
+  )
 }
-
-export default App;
