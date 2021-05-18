@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import WeatherInfo from './components/WeatherInfo'
 
 
 export default function App() {
@@ -13,8 +14,8 @@ export default function App() {
   console.log()
   return(
     <div>
-      <h1>Hello</h1>
-      <h2>{weather.weather[0].description}</h2>
+      <h1>Road Trip Weather App</h1>
+      <WeatherInfo weather={weather}/>
     </div>
   )
 }
